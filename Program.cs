@@ -44,7 +44,19 @@ namespace votingCalculator
                 string vote = Console.ReadLine();
                 if (vote == "y")
                 {
-
+                    Console.WriteLine("The Country has voted yes");
+                }
+                else if (vote == "n")
+                {
+                    Console.WriteLine("The Country has voted no");
+                }
+                else if (vote == "a")
+                {
+                    Console.WriteLine("The Country has voted to abstain from the vote");
+                }
+                else
+                {
+                    Console.WriteLine("This vote is invalid we're changing the vote to yes");
                 }
             }
         }
