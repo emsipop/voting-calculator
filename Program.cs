@@ -69,6 +69,15 @@ namespace votingCalculator
             Console.WriteLine($"Yes: {yes}");
             Console.WriteLine($"No: {no}");
             Console.WriteLine($"Abstain: {abstain}");
+
+            if (yes<15)
+            {
+                Console.WriteLine("Final result: REJECTED");
+            }
+            else
+            {
+                Console.WriteLine("Final result: APPROVED");
+            }
         }
     }
 }
