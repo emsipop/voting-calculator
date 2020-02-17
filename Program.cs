@@ -38,6 +38,9 @@ namespace votingCalculator
             countryDict.Add("Spain", 10.49);
             countryDict.Add("Sweden", 2.29);
 
+            int yes = 27;
+            int no = 0;
+            int abstain = 0;
             foreach (var country in countryDict)
             {
                 Console.WriteLine(country.Key);
@@ -49,16 +52,23 @@ namespace votingCalculator
                 else if (vote == "n")
                 {
                     Console.WriteLine("The Country has voted no");
+                    yes--;
+                    no++;
                 }
                 else if (vote == "a")
                 {
                     Console.WriteLine("The Country has voted to abstain from the vote");
+                    yes--;
+                    abstain++;
                 }
                 else
                 {
                     Console.WriteLine("This vote is invalid we're changing the vote to yes");
                 }
             }
+            Console.WriteLine($"Yes: {yes}");
+            Console.WriteLine($"No: {no}");
+            Console.WriteLine($"Abstain: {abstain}");
         }
     }
 }
