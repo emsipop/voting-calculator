@@ -1,0 +1,11 @@
+D:\OOP work\Voting-calc\Voting-calc\bin\Debug\netcoreapp3.1\Voting-calc.exe
+D:\OOP work\Voting-calc\Voting-calc\bin\Debug\netcoreapp3.1\Voting-calc.deps.json
+D:\OOP work\Voting-calc\Voting-calc\bin\Debug\netcoreapp3.1\Voting-calc.runtimeconfig.json
+D:\OOP work\Voting-calc\Voting-calc\bin\Debug\netcoreapp3.1\Voting-calc.runtimeconfig.dev.json
+D:\OOP work\Voting-calc\Voting-calc\bin\Debug\netcoreapp3.1\Voting-calc.dll
+D:\OOP work\Voting-calc\Voting-calc\bin\Debug\netcoreapp3.1\Voting-calc.pdb
+D:\OOP work\Voting-calc\Voting-calc\obj\Debug\netcoreapp3.1\Voting-calc.csprojAssemblyReference.cache
+D:\OOP work\Voting-calc\Voting-calc\obj\Debug\netcoreapp3.1\Voting-calc.AssemblyInfoInputs.cache
+D:\OOP work\Voting-calc\Voting-calc\obj\Debug\netcoreapp3.1\Voting-calc.AssemblyInfo.cs
+D:\OOP work\Voting-calc\Voting-calc\obj\Debug\netcoreapp3.1\Voting-calc.dll
+D:\OOP work\Voting-calc\Voting-calc\obj\Debug\netcoreapp3.1\Voting-calc.pdb
