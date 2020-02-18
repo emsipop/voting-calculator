@@ -78,7 +78,6 @@ namespace votingCalculator
                 else
                 {
                     Console.WriteLine("This vote is invalid we're changing the vote to yes");
-                    Console.WriteLine("");
                 }
             }
 
