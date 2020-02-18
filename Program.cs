@@ -75,6 +75,22 @@ namespace votingCalculator
                     Console.WriteLine("This vote is invalid we're changing the vote to yes");
                 }
             }
+
+            if(percYes < 0.00)
+            {
+                percYes = 0.00;
+            }
+
+            if(percNo > 100.00)
+            {
+                percNo = 100.00;
+            }
+
+            if (percAb > 100.00)
+            {
+                percAb = 100.00;
+            }
+
             Console.WriteLine("MEMBER STATES");
             Console.WriteLine($"Yes: {yes}");
             Console.WriteLine($"No: {no}");
