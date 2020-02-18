@@ -9,6 +9,8 @@ namespace votingCalculator
         {
             Console.WriteLine("Welcome to the voting calculator");
             Console.WriteLine("Please set the votes for each country (y/n/a)");
+            Console.WriteLine("");
+
             Dictionary<string, double> countryDict = new Dictionary<string, double>();
             countryDict.Add("Austria", 1.98);
             countryDict.Add("Belgium", 2.56);
@@ -53,10 +55,12 @@ namespace votingCalculator
                 if (vote == "y")
                 {
                     Console.WriteLine("The Country has voted yes");
+                    Console.WriteLine("");
                 }
                 else if (vote == "n")
                 {
                     Console.WriteLine("The Country has voted no");
+                    Console.WriteLine("");
                     yes--;
                     no++;
                     percYes = Math.Round(percYes - country.Value, 2);
@@ -65,6 +69,7 @@ namespace votingCalculator
                 else if (vote == "a")
                 {
                     Console.WriteLine("The Country has voted to abstain from the vote");
+                    Console.WriteLine("");
                     yes--;
                     abstain++;
                     percYes = Math.Round(percYes - country.Value, 2);
@@ -73,6 +78,7 @@ namespace votingCalculator
                 else
                 {
                     Console.WriteLine("This vote is invalid we're changing the vote to yes");
+                    Console.WriteLine("");
                 }
             }
 
