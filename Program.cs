@@ -59,16 +59,16 @@ namespace votingCalculator
                     Console.WriteLine("The Country has voted no");
                     yes--;
                     no++;
-                    percYes = percYes - country.Value;
-                    percNo = percNo + country.Value;
+                    percYes = Math.Round(percYes, 2) - country.Value;
+                    percNo = Math.Round(percNo, 2) + country.Value;
                 }
                 else if (vote == "a")
                 {
                     Console.WriteLine("The Country has voted to abstain from the vote");
                     yes--;
                     abstain++;
-                    percYes = percYes - country.Value;
-                    percAb = percAb + country.Value;
+                    percYes = Math.Round(percYes, 2) - country.Value;
+                    percAb = Math.Round(percAb, 2) + country.Value;
                 }
                 else
                 {
@@ -85,7 +85,7 @@ namespace votingCalculator
             Console.WriteLine($"No: {percNo}%");
             Console.WriteLine($"Abstain: {percAb}%");
 
-            if (yes < 15 | percYes < 65)
+            if (yes < 15 | percYes < 65.00)
             {
                 Console.WriteLine("Final result: REJECTED");
             }
