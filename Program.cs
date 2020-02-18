@@ -41,6 +41,11 @@ namespace votingCalculator
             int yes = 27;
             int no = 0;
             int abstain = 0;
+
+            double percYes = 100.00;
+            double percNo = 0.00;
+            double percAb = 0.00;
+
             foreach (var country in countryDict)
             {
                 Console.WriteLine(country.Key);
@@ -54,23 +59,33 @@ namespace votingCalculator
                     Console.WriteLine("The Country has voted no");
                     yes--;
                     no++;
+                    percYes = percYes - country.Value;
+                    percNo = percNo + country.Value;
                 }
                 else if (vote == "a")
                 {
                     Console.WriteLine("The Country has voted to abstain from the vote");
                     yes--;
                     abstain++;
+                    percYes = percYes - country.Value;
+                    percAb = percAb + country.Value;
                 }
                 else
                 {
                     Console.WriteLine("This vote is invalid we're changing the vote to yes");
                 }
             }
+            Console.WriteLine("MEMBER STATES");
             Console.WriteLine($"Yes: {yes}");
             Console.WriteLine($"No: {no}");
             Console.WriteLine($"Abstain: {abstain}");
 
-            if (yes<15)
+            Console.WriteLine("POPULATION");
+            Console.WriteLine($"Yes: {percYes}%");
+            Console.WriteLine($"No: {percNo}%");
+            Console.WriteLine($"Abstain: {percAb}%");
+
+            if (yes < 15 | percYes < 65)
             {
                 Console.WriteLine("Final result: REJECTED");
             }
