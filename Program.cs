@@ -91,15 +91,18 @@ namespace votingCalculator
                 percAb = 100.00;
             }
 
+            Console.WriteLine("");
             Console.WriteLine("MEMBER STATES");
             Console.WriteLine($"Yes: {yes}");
             Console.WriteLine($"No: {no}");
             Console.WriteLine($"Abstain: {abstain}");
 
+            Console.WriteLine("");
             Console.WriteLine("POPULATION");
             Console.WriteLine($"Yes: {percYes}%");
             Console.WriteLine($"No: {percNo}%");
             Console.WriteLine($"Abstain: {percAb}%");
+            Console.WriteLine("");
 
             if (yes < 15 | percYes < 65.00)
             {
