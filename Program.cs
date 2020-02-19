@@ -5,11 +5,48 @@ namespace votingCalculator
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Participating()
         {
-            Console.WriteLine("Welcome to the voting calculator");
-            Console.WriteLine("Please set the votes for each country (y/n/a)");
+            Console.WriteLine("Are all countries participating? \n 1. Yes \n 2. No");
+            int select = int.Parse(Console.ReadLine());
+            if(select == 1)
+            {
+                Votes();
+            }
+            else if(select == 2)
+            {
+                Display();
+                int end = 1;
+                while (end != 2)
+                {
+                    Console.WriteLine("Enter the name of the country not participating");
+                    string name = Console.ReadLine();
+                    Remove(name);
+                    Console.WriteLine("Would you like to remove another country? \n 1. Yes \n 2. No");
+                }
+                Votes();
+            }
+        }
 
+        static void Remove(string choice)
+        {
+
+            Country remove = new Country();
+            remove.countryDict.Remove(choice);
+            Console.WriteLine($"{choice} is no longer participating");
+        }
+
+        static void Display()
+        {
+            Country vote = new Country();
+            foreach (var country in vote.countryDict)
+            {
+                Console.WriteLine(country.Key);
+            }
+        }
+
+        static void Votes()
+        {
             int yes = 27;
             int no = 0;
             int abstain = 0;
@@ -18,13 +55,11 @@ namespace votingCalculator
             double percNo = 0.00;
             double percAb = 0.00;
 
-            Countries c = new Countries();
-
-            foreach (var country in c.countryDict)
+            foreach (var country in remove.countryDict)
             {
                 Console.WriteLine(country.Key);
-                string vote = Console.ReadLine();
-                if (vote == "y")
+                string v = Console.ReadLine();
+                if (v == "y")
                 {
                     Console.WriteLine("The Country has voted yes");
                     Console.WriteLine("");
@@ -53,12 +88,12 @@ namespace votingCalculator
                 }
             }
 
-            if(percYes < 0.00)
+            if (percYes < 0.00)
             {
                 percYes = 0.00;
             }
 
-            if(percNo > 100.00)
+            if (percNo > 100.00)
             {
                 percNo = 100.00;
             }
@@ -67,6 +102,14 @@ namespace votingCalculator
             {
                 percAb = 100.00;
             }
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("VOTING CALCULATOR");
+            Participating();
+
+            
 
             Console.WriteLine("");
             Console.WriteLine("MEMBER STATES");

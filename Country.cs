@@ -4,7 +4,7 @@ using System.Text;
 
 namespace votingCalculator
 {
-    class Countries
+    class Country
     {
         public Dictionary<string, double> countryDict = new Dictionary<string, double>()
         {
