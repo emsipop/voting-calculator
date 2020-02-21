@@ -28,6 +28,13 @@ namespace votingCalculator
             {
                 Console.Write($"{country.Key} ---> ");
                 string vote = Console.ReadLine();
+                
+                while (vote != "y" && vote != "n" && vote != "a")
+                {
+                    Console.WriteLine("Not a valid input, please try again");
+                    vote = Console.ReadLine();
+                }
+
                 if (vote == "y")
                 {
                     Console.WriteLine($"{country.Key} voted yes \n");
@@ -48,10 +55,6 @@ namespace votingCalculator
                     percYes = Math.Round(percYes - country.Value, 2);
                     percAb = Math.Round(percAb + country.Value, 2);
                 }
-                else
-                {
-                    Console.WriteLine("Not a valid input, vote has been set to yes");
-                }
             }
 
             if (percYes < 0.00)
@@ -69,6 +72,12 @@ namespace votingCalculator
 
             Console.WriteLine("Choose the voting rule: \n1. Qualified majority \n2. Reinforced qualified majority \n3. Simple majority \n4. Unanimity");
             int rule = int.Parse(Console.ReadLine());
+
+            while (rule != 1 && rule != 2 && rule != 3 && rule != 4)
+            {
+                Console.WriteLine("Please choose one of the options provided");
+                rule = int.Parse(Console.ReadLine());
+            }
 
             if (rule == 1)
             {
@@ -135,7 +144,7 @@ namespace votingCalculator
             Console.WriteLine("Participation Rules: \n1. All countries participating \n2. Only Eurozone countries participating");
             int partRule = int.Parse(Console.ReadLine());
 
-            while (partRule != 1 || partRule != 2)
+            while (partRule != 1 && partRule != 2)
             {
                 Console.WriteLine("Please choose one of the options provided");
                 partRule = int.Parse(Console.ReadLine());
@@ -146,7 +155,7 @@ namespace votingCalculator
                 Console.WriteLine("Participation Rule: All countries participating \n");
                 Voting(dict.allCountries);
             }
-            if (partRule == 2)
+            else if (partRule == 2)
             {
                 Console.WriteLine("Participation Rule: Only Eurozone countries participating \n");
                 Voting(dict.eurozone);
