@@ -77,6 +77,7 @@ namespace votingCalculator
             {
                 Console.WriteLine("Please choose one of the options provided");
                 rule = int.Parse(Console.ReadLine());
+                Console.WriteLine("");
             }
 
             if (rule == 1)
@@ -115,7 +116,7 @@ namespace votingCalculator
             else if (rule == 4)
             {
                 if (yes < listLength * 1.00)
-                {
+                { 
                     Console.WriteLine("FINAL RESULT ---> REJECTED \n");
                 }
                 else
@@ -152,12 +153,12 @@ namespace votingCalculator
 
             if (partRule == 1)
             {
-                Console.WriteLine("Participation Rule: All countries participating \n");
+                Console.WriteLine("Participation Rule: All countries participating  \n");
                 Voting(dict.allCountries);
             }
             else if (partRule == 2)
             {
-                Console.WriteLine("Participation Rule: Only Eurozone countries participating \n");
+                Console.WriteLine("Participation Rule: Only Eurozone countries participating  \n");
                 Voting(dict.eurozone);
             }
         }
