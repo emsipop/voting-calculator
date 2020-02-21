@@ -23,38 +23,45 @@ namespace votingCalculator
             double percNo = 0.00;
             double percAb = 0.00;
 
-            Console.WriteLine("\nSet the votes for each country (y/n/a): \n");
-            foreach (var country in countryDict)
+            try
             {
-                Console.Write($"{country.Key} ---> ");
-                string vote = Console.ReadLine();
+                Console.WriteLine("\nSet the votes for each country (y/n/a): \n");
+                foreach (var country in countryDict)
+                {
+                 Console.Write($"{country.Key} ---> ");
+                 string vote = Console.ReadLine();
                 
-                while (vote != "y" && vote != "n" && vote != "a")
-                {
-                    Console.WriteLine("Not a valid input, please try again");
-                    vote = Console.ReadLine();
-                }
+                    while (vote != "y" && vote != "n" && vote != "a")
+                    {
+                        Console.WriteLine("Not a valid input, please try again");
+                        vote = Console.ReadLine();
+                    }
 
-                if (vote == "y")
-                {
-                    Console.WriteLine($"{country.Key} voted yes \n");
-                }
-                else if (vote == "n")
-                {
-                    Console.WriteLine($"{country.Key} voted no \n");
-                    yes--;
-                    no++;
-                    percYes = Math.Round(percYes - country.Value, 2);
-                    percNo = Math.Round(percNo + country.Value, 2);
-                }
-                else if (vote == "a")
-                {
-                    Console.WriteLine($"{country.Key} have abstained \n");
-                    yes--;
-                    abstain++;
-                    percYes = Math.Round(percYes - country.Value, 2);
-                    percAb = Math.Round(percAb + country.Value, 2);
-                }
+                    if (vote == "y")
+                    {
+                        Console.WriteLine($"{country.Key} voted yes \n");
+                    }
+                    else if (vote == "n")
+                    {
+                        Console.WriteLine($"{country.Key} voted no \n");
+                        yes--;
+                        no++;
+                        percYes = Math.Round(percYes - country.Value, 2);
+                        percNo = Math.Round(percNo + country.Value, 2);
+                    }
+                    else if (vote == "a")
+                    {
+                        Console.WriteLine($"{country.Key} have abstained \n");
+                        yes--;
+                        abstain++;
+                        percYes = Math.Round(percYes - country.Value, 2);
+                        percAb = Math.Round(percAb + country.Value, 2);
+                    }
+                 }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("You have inputted an invalid response");
             }
 
             if (percYes < 0.00)
