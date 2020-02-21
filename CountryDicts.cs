@@ -56,7 +56,7 @@ namespace votingCalculator
             { "Netherlands", 5.08 },
             { "Portugal", 3.00 },
             { "Slovakia", 1.59 },
-            {"Slovenia", 0.6 },
+            {"Slovenia", 0.61 },
             { "Spain", 13.70 }
         };
     }

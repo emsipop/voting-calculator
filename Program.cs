@@ -135,6 +135,12 @@ namespace votingCalculator
             Console.WriteLine("Participation Rules: \n1. All countries participating \n2. Only Eurozone countries participating");
             int partRule = int.Parse(Console.ReadLine());
 
+            while (partRule != 1 || partRule != 2)
+            {
+                Console.WriteLine("Please choose one of the options provided");
+                partRule = int.Parse(Console.ReadLine());
+            }
+
             if (partRule == 1)
             {
                 Console.WriteLine("Participation Rule: All countries participating \n");
