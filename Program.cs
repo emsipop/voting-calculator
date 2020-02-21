@@ -5,6 +5,18 @@ namespace votingCalculator
 {
     class Program
     {
+        static void Result(int yes, int length, double perc, double perc1, double perc2)
+        {
+            if (yes < length * perc1 | perc < perc2)
+            {
+                Console.WriteLine("FINAL RESULT ---> REJECTED \n");
+            }
+            else
+            {
+                Console.WriteLine("FINAL RESULT ---> APPROVED \n");
+            }
+        }
+
         static void Voting(Dictionary<string, double> countryDict)
         {
             Console.WriteLine("These are the countries participating: \n");
@@ -79,50 +91,21 @@ namespace votingCalculator
                 rule = int.Parse(Console.ReadLine());
                 Console.WriteLine("");
             }
-
             if (rule == 1)
             {
-                if (yes < listLength * 0.55 | percYes < 65.00)
-                {
-                    Console.WriteLine("FINAL RESULT ---> REJECTED \n");
-                }
-                else
-                {
-                    Console.WriteLine("FINAL RESULT ---> APPROVED \n");
-                }
+                Result(yes, listLength, percYes, 0.55, 65.00);
             }
             else if (rule == 2)
             {
-                if (yes < listLength * 0.72 | percYes < 65.00)
-                {
-                    Console.WriteLine("FINAL RESULT ---> REJECTED \n");
-                }
-                else
-                {
-                    Console.WriteLine("FINAL RESULT ---> APPROVED \n");
-                }
+                Result(yes, listLength, percYes, 0.72, 65.00);
             }
             else if (rule == 3)
             {
-                if (yes < listLength * 0.50)
-                {
-                    Console.WriteLine("FINAL RESULT ---> REJECTED \n");
-                }
-                else
-                {
-                    Console.WriteLine("FINAL RESULT ---> APPROVED \n");
-                }
+                Result(yes, listLength, percYes, 0.50, 0.00);
             }
             else if (rule == 4)
             {
-                if (yes < listLength * 1.00)
-                { 
-                    Console.WriteLine("FINAL RESULT ---> REJECTED \n");
-                }
-                else
-                {
-                    Console.WriteLine("FINAL RESULT ---> APPROVED \n");
-                }
+                Result(yes, listLength, percYes, 1.00, 0.00);
             }
 
             Console.WriteLine($"{listLength} MEMBER STATES");
