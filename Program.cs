@@ -17,7 +17,7 @@ namespace votingCalculator
             }
         }
 
-        static void Voting(Dictionary<string, double> countryDict)
+        public void Voting(Dictionary<string, double> countryDict)
         {
             Console.WriteLine("These are the countries participating: \n");
             foreach (var country in countryDict)
@@ -134,16 +134,7 @@ namespace votingCalculator
                 partRule = int.Parse(Console.ReadLine());
             }
 
-            if (partRule == 1)
-            {
-                Console.WriteLine("Participation Rule: All countries participating  \n");
-                Voting(dict.allCountries);
-            }
-            else if (partRule == 2)
-            {
-                Console.WriteLine("Participation Rule: Only Eurozone countries participating  \n");
-                Voting(dict.eurozone);
-            }
+            dict.StateRule(partRule);
         }
     }
 }

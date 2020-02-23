@@ -6,7 +6,7 @@ namespace votingCalculator
 {
     class CountryDicts
     {
-        public Dictionary<string, double> allCountries = new Dictionary<string, double>()
+        private Dictionary<string, double> allCountries = new Dictionary<string, double>()
         {
             { "Austria", 1.98 },
             { "Belgium", 2.56 },
@@ -37,7 +37,7 @@ namespace votingCalculator
             { "Sweden", 2.29 }
         };
 
-        public Dictionary<string, double> eurozone = new Dictionary<string, double>()
+        private Dictionary<string, double> eurozone = new Dictionary<string, double>()
         {
             { "Austria", 2.58 },
             { "Belgium", 3.35 },
@@ -59,5 +59,41 @@ namespace votingCalculator
             {"Slovenia", 0.61 },
             { "Spain", 13.70 }
         };
+
+        public Dictionary<string, double> dictOne
+        {
+            get { return allCountries; } set { allCountries = value; }
+        }
+        public Dictionary<string, double> dictTwo
+        {
+            get { return eurozone; } set { eurozone = value; }
+        }
+
+        // private method
+        private void loadCountryDict()
+        {
+            Console.WriteLine($"Loading country list...");
+        }
+
+        // public method
+        public void StateRule(int choice)
+        {
+            // call private method
+            loadCountryDict();
+
+            Program p = new Program();
+
+            if (choice == 1)
+            {
+                Console.WriteLine("All countries participating");
+                p.Voting(allCountries);
+            }
+
+            if (choice == 2)
+            {
+                Console.WriteLine("Only Eurozone countries participating");
+                p.Voting(eurozone);
+            }
+        }
     }
 }
