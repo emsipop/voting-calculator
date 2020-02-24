@@ -5,19 +5,6 @@ namespace votingCalculator
 {
     class Program
     {
-        // Method called to test whether parameters meet the conditions of the statement - correspond to each voting rule
-        static void Result(int yes, int length, double perc, double perc1, double perc2)
-        {
-            if (yes < length * perc1 | perc < perc2)
-            {
-                Console.WriteLine("FINAL RESULT ---> REJECTED \n");
-            }
-            else
-            {
-                Console.WriteLine("FINAL RESULT ---> APPROVED \n");
-            }
-        }
-
         // Method called from object within class CountryDict
         // The corresponding dictionary is used depending on the private dictionary called within CountryDicts
         public void Voting(Dictionary<string, double> countryDict)
@@ -106,6 +93,7 @@ namespace votingCalculator
                 {
                     Console.WriteLine("Must be an integer!");
                 }
+            }
 
             // The corresponding parameters are called in the Result method for the rule specified
             if (rule == 1)
@@ -135,6 +123,19 @@ namespace votingCalculator
             Console.WriteLine($"Yes: {Math.Round(percYes, 2)}%");
             Console.WriteLine($"No: {Math.Round(percNo, 2)}%");
             Console.WriteLine($"Abstain: {Math.Round(percAb, 2)}%");
+        }
+
+        // Method called to test whether parameters meet the conditions of the statement - correspond to each voting rule
+        static void Result(int yes, int length, double perc, double perc1, double perc2)
+        {
+            if (yes < length * perc1 | perc < perc2)
+            {
+                Console.WriteLine("FINAL RESULT ---> REJECTED \n");
+            }
+            else
+            {
+                Console.WriteLine("FINAL RESULT ---> APPROVED \n");
+            }
         }
 
         // Main method
