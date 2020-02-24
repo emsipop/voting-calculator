@@ -6,7 +6,8 @@ namespace votingCalculator
 {
     class CountryDicts
     {
-        public Dictionary<string, double> allCountries = new Dictionary<string, double>()
+        // Private dictionaries encapsulated - contains different countries and population %s for each participation rule
+        private Dictionary<string, double> allCountries = new Dictionary<string, double>()
         {
             { "Austria", 1.98 },
             { "Belgium", 2.56 },
@@ -36,8 +37,7 @@ namespace votingCalculator
             { "Spain", 10.49 },
             { "Sweden", 2.29 }
         };
-
-        public Dictionary<string, double> eurozone = new Dictionary<string, double>()
+        private Dictionary<string, double> eurozone = new Dictionary<string, double>()
         {
             { "Austria", 2.58 },
             { "Belgium", 3.35 },
@@ -59,5 +59,46 @@ namespace votingCalculator
             {"Slovenia", 0.61 },
             { "Spain", 13.70 }
         };
+
+        // Auto property
+        public Dictionary<string, double> dictOne
+        {
+            get { return allCountries; }
+            set { allCountries = value; }
+        }
+        public Dictionary<string, double> dictTwo
+        {
+            get { return eurozone; }
+            set { eurozone = value; }
+        }
+
+        // Private method encapsulated
+        private void loadCountryDict()
+        {
+            Console.WriteLine($"Loading country list...");
+        }
+
+        // Public method calls information using parameter from Program class
+        public void StateRule(int choice)
+        {
+            // Call private method
+            loadCountryDict();
+
+            // Object instantiation of Program class
+            Program p = new Program();
+
+            // The corresponding dictionary is abstracted for use in the Program class
+            if (choice == 1)
+            {
+                Console.WriteLine("All countries participating");
+                p.Voting(dictOne);
+            }
+
+            if (choice == 2)
+            {
+                Console.WriteLine("Only Eurozone countries participating");
+                p.Voting(dictTwo);
+            }
+        }
     }
 }
