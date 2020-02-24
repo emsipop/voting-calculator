@@ -6,6 +6,7 @@ namespace votingCalculator
 {
     class CountryDicts
     {
+        // Private dictionaries encapsulated - contains different countries and population %s for each participation rule
         private Dictionary<string, double> allCountries = new Dictionary<string, double>()
         {
             { "Austria", 1.98 },
@@ -36,7 +37,6 @@ namespace votingCalculator
             { "Spain", 10.49 },
             { "Sweden", 2.29 }
         };
-
         private Dictionary<string, double> eurozone = new Dictionary<string, double>()
         {
             { "Austria", 2.58 },
@@ -60,6 +60,7 @@ namespace votingCalculator
             { "Spain", 13.70 }
         };
 
+        // Auto property
         public Dictionary<string, double> dictOne
         {
             get { return allCountries; } set { allCountries = value; }
@@ -69,20 +70,22 @@ namespace votingCalculator
             get { return eurozone; } set { eurozone = value; }
         }
 
-        // private method
+        // Private method encapsulated
         private void loadCountryDict()
         {
             Console.WriteLine($"Loading country list...");
         }
 
-        // public method
+        // Public method calls information using parameter from Program class
         public void StateRule(int choice)
         {
-            // call private method
+            // Call private method
             loadCountryDict();
 
+            // Object instantiation of Program class
             Program p = new Program();
 
+            // The corresponding dictionary is abstracted for use in the Program class
             if (choice == 1)
             {
                 Console.WriteLine("All countries participating");

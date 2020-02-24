@@ -5,6 +5,7 @@ namespace votingCalculator
 {
     class Program
     {
+        // Method called to test whether parameters meet the conditions of the statement - correspond to each voting rule
         static void Result(int yes, int length, double perc, double perc1, double perc2)
         {
             if (yes < length * perc1 | perc < perc2)
@@ -17,9 +18,13 @@ namespace votingCalculator
             }
         }
 
+        // Method called from object within class CountryDict
+        // The corresponding dictionary is used depending on the private dictionary called within CountryDicts
         public void Voting(Dictionary<string, double> countryDict)
         {
             Console.WriteLine("These are the countries participating: \n");
+
+            // Lists each country from the selected dictionary
             foreach (var country in countryDict)
             {
                 Console.WriteLine(country.Key);
@@ -36,6 +41,8 @@ namespace votingCalculator
             double percAb = 0.00;
 
             Console.WriteLine("\nSet the votes for each country (y/n/a): \n");
+
+            // The vote for each country is calculated and added to and subtracted from the correct variables
             foreach (var country in countryDict)
             {
                 Console.Write($"{country.Key} ---> ");
@@ -69,6 +76,7 @@ namespace votingCalculator
                 }
             }
 
+            // Allows for incorrect total calculation on found on website for if all countries vote no or abstain
             if (percYes < 0.00)
             {
                 percYes = 0;
@@ -82,7 +90,8 @@ namespace votingCalculator
                 percAb = 100.00;
             }
 
-            Console.WriteLine("Choose the voting rule: \n1. Qualified majority \n2. Reinforced qualified majority \n3. Simple majority \n4. Unanimity");
+            // Lists the voting rules available to the user
+            Console.WriteLine("Choose the voting rule:\n1. Qualified majority\n2. Reinforced qualified majority\n3. Simple majority\n4. Unanimity");
             int rule = int.Parse(Console.ReadLine());
 
             while (rule != 1 && rule != 2 && rule != 3 && rule != 4)
@@ -91,6 +100,8 @@ namespace votingCalculator
                 rule = int.Parse(Console.ReadLine());
                 Console.WriteLine("");
             }
+
+            // The corresponding parameters are called in the Result method for the rule specified
             if (rule == 1)
             {
                 Result(yes, listLength, percYes, 0.55, 65.00);
@@ -108,6 +119,7 @@ namespace votingCalculator
                 Result(yes, listLength, percYes, 1.00, 0.00);
             }
 
+            // Displays results of votes
             Console.WriteLine($"{listLength} MEMBER STATES");
             Console.WriteLine($"Yes: {yes}");
             Console.WriteLine($"No: {no}");
@@ -119,12 +131,15 @@ namespace votingCalculator
             Console.WriteLine($"Abstain: {Math.Round(percAb, 2)}%");
         }
 
+        // Main method
         static void Main(string[] args)
         {
             Console.WriteLine("VOTING CALCULATOR \n");
 
+            // Object instantiation of the CountryDict class
             CountryDicts dict = new CountryDicts();
 
+            // Lists the participating rules available to the user
             Console.WriteLine("Participation Rules: \n1. All countries participating \n2. Only Eurozone countries participating");
             int partRule = int.Parse(Console.ReadLine());
 
@@ -134,6 +149,7 @@ namespace votingCalculator
                 partRule = int.Parse(Console.ReadLine());
             }
 
+            // The rule specified by the user is passed in as a parameter and called from the StateRule method
             dict.StateRule(partRule);
         }
     }
