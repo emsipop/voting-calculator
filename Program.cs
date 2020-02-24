@@ -47,7 +47,7 @@ namespace votingCalculator
             {
                 Console.Write($"{country.Key} ---> ");
                 string vote = Console.ReadLine();
-                
+
                 while (vote != "y" && vote != "n" && vote != "a")
                 {
                     Console.WriteLine("Not a valid input, please try again");
@@ -92,14 +92,20 @@ namespace votingCalculator
 
             // Lists the voting rules available to the user
             Console.WriteLine("Choose the voting rule:\n1. Qualified majority\n2. Reinforced qualified majority\n3. Simple majority\n4. Unanimity");
-            int rule = int.Parse(Console.ReadLine());
+            int rule = 0;
 
             while (rule != 1 && rule != 2 && rule != 3 && rule != 4)
             {
-                Console.WriteLine("Please choose one of the options provided");
-                rule = int.Parse(Console.ReadLine());
-                Console.WriteLine("");
-            }
+                // Try and catch to prevent the program from ending when a string is entered instead of an integer
+                try
+                {
+                    Console.WriteLine("Enter the number of one of the options provided");
+                    rule = int.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Must be an integer!");
+                }
 
             // The corresponding parameters are called in the Result method for the rule specified
             if (rule == 1)
@@ -141,12 +147,20 @@ namespace votingCalculator
 
             // Lists the participating rules available to the user
             Console.WriteLine("Participation Rules: \n1. All countries participating \n2. Only Eurozone countries participating");
-            int partRule = int.Parse(Console.ReadLine());
+            int partRule = 0;
 
             while (partRule != 1 && partRule != 2)
             {
-                Console.WriteLine("Please choose one of the options provided");
-                partRule = int.Parse(Console.ReadLine());
+                // Try and catch to prevent the program from ending when a string is entered instead of an integer
+                try
+                {
+                    Console.WriteLine("Enter the number of one of the options provided");
+                    partRule = int.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Must be an integer!");
+                }
             }
 
             // The rule specified by the user is passed in as a parameter and called from the StateRule method

@@ -63,11 +63,13 @@ namespace votingCalculator
         // Auto property
         public Dictionary<string, double> dictOne
         {
-            get { return allCountries; } set { allCountries = value; }
+            get { return allCountries; }
+            set { allCountries = value; }
         }
         public Dictionary<string, double> dictTwo
         {
-            get { return eurozone; } set { eurozone = value; }
+            get { return eurozone; }
+            set { eurozone = value; }
         }
 
         // Private method encapsulated
