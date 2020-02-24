@@ -106,7 +106,6 @@ namespace votingCalculator
                 {
                     Console.WriteLine("Must be an integer!");
                 }
-            }
 
             // The corresponding parameters are called in the Result method for the rule specified
             if (rule == 1)
