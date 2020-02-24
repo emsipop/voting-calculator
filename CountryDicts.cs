@@ -86,13 +86,13 @@ namespace votingCalculator
             if (choice == 1)
             {
                 Console.WriteLine("All countries participating");
-                p.Voting(allCountries);
+                p.Voting(dictOne);
             }
 
             if (choice == 2)
             {
                 Console.WriteLine("Only Eurozone countries participating");
-                p.Voting(eurozone);
+                p.Voting(dictTwo);
             }
         }
     }
