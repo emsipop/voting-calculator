@@ -72,10 +72,10 @@ namespace votingCalculator
             set { eurozone = value; }
         }
 
-        // Private method encapsulated
+        // Private method abstracted
         private void loadCountryDict()
         {
-            Console.WriteLine($"Loading country list...");
+            Console.WriteLine("Loading country list...");
         }
 
         // Public method calls information using parameter from Program class
@@ -87,7 +87,7 @@ namespace votingCalculator
             // Object instantiation of Program class
             Program p = new Program();
 
-            // The corresponding dictionary is abstracted for use in the Program class
+            // The corresponding dictionary accessed for use in the Program class
             if (choice == 1)
             {
                 Console.WriteLine("All countries participating");
